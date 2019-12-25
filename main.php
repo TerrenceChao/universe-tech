@@ -21,4 +21,4 @@ require_once 'v2/GameService.php';
 echo PHP_EOL . '--新版本--' . PHP_EOL;
 
 $service = GameService::instance();
-$service->getWinningNumber(new Lottery(['game_id' => 1, 'issue' => '20190903001']));
+$service->getWinningNumber(new Lottery(['game_id' => 2, 'issue' => '20190903001']));

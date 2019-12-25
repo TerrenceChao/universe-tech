@@ -52,17 +52,17 @@ class GameService {
     return [
       [
         'vendor_id' => 18,
-        'name' => 'API vendor A (3rd party)',
+        'name' => 'FirstAPIVendor',
         'url' => 'http://one.faker/v1'
       ],
       [
         'vendor_id' => 22,
-        'name' => 'API vendor B (3rd party)',
+        'name' => 'SecondAPIVendor',
         'url' => 'https://two.fake/newly.do'
       ],
       [
         'vendor_id' => 66,
-        'name' => 'API vendor C (3rd party)',
+        'name' => 'ThirdAPIVendor',
         'url' => 'https://three.fake/just.bet'
       ]
     ];
