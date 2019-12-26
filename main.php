@@ -7,8 +7,7 @@
 
 // echo '--舊版本--' . PHP_EOL;
 
-// $service = new GameService();
-// $target = $service->getTarget(new Lottery(1, '20190903001'));
+// $target = new GameService(new Lottery(1, '20190903001'));
 // $target->getWinningNumber();
 
 
@@ -20,5 +19,5 @@ require_once 'v2/GameService.php';
 
 echo PHP_EOL . '--新版本--' . PHP_EOL;
 
-$service = GameService::instance();
-$service->getWinningNumber(new Lottery(['game_id' => 2, 'issue' => '20190903001']));
+$target = GameService::instance();
+$target->getWinningNumber(new Lottery(['game_id' => 2, 'issue' => '20190903001']));

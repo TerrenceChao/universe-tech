@@ -7,14 +7,16 @@ class GameService {
   /** array  號源列表 */
   private $vendorList;
 
-  /** GameService */
-  private static $instance;
+  /** Lottery */
+  private $lottery;
 
   /**
    * constructor
+   * @param Lottery $lottery 指定彩種
    */
-  public function __construct()
+  public function __construct(Lottery $lottery)
   {
+    $this->lottery = $lottery;
     $this->vendorList = [];
 
     // 載入所有的第三方 API 廠商 (號源)
@@ -139,14 +141,13 @@ class GameService {
 
   /**
    * 用來取得特定的 LotteryHandler
-   * @param Lottery $lottery 指定彩種
    */
-  public function getTarget(Lottery $lottery): LotteryHandler
+  public function getWinningNumber(): string
   {
-    $gameId = $lottery->gameId;
+    $gameId = $this->lottery->gameId;
     $lotteryVendorMapping = $this->getLotteryVendorMappingFromDB($gameId);
     $vendorList = $this->keyByVendorId($lotteryVendorMapping);
 
-    return new LotteryHandler($lottery, $vendorList);
+    return (new LotteryHandler($this->lottery, $vendorList))->getWinningNumber();
   }
 }
